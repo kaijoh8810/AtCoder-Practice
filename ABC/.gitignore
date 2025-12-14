@@ -1,0 +1,11 @@
+# コンパイルされた実行ファイル
+*.exe
+*.out
+*.o
+
+# OSやVSCodeの設定ファイル
+.DS_Store
+.vscode/
+
+# Competitive Programming Helperの一時ファイル（これ重要！）
+.cph/

@@ -4,30 +4,27 @@ using ll = long long;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(v) v.begin(), v.end()
 
-    int N;
-vector<int> p, q;
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
-    cin >> N;
-    vector<int> p(N), q(N);
-    rep(i,N) cin >> p[i], --p[i];
-    rep(i,N) cin >> q[i], --q[i];
 
-    // 各順列が何番目かを求める
-    map<vector<int>, int> ord;
-    int iter = 0;
+    int n;
+    cin >> n;
+    vector<int> p(n),q(n);
+    rep(i,n) cin >> p[i];
+    rep(i,n) cin >> q[i];
 
-    // スタートとなる順列
-    vector<int> v(N);
-    rep(i,N) v[i] = i;
+    vector<int> a(n);
+    rep(i,n) a[i] = i+1;
 
-    // 順番に
-    do {
-        ord[v] = iter++;
-    } while (next_permutation(all(v)));
+    int p_rank = 0, q_rank = 0;
+    int cnt = 0;
 
-    cout << abs(ord[p] - ord[q]) << endl;
+    do{
+        if(a == p) p_rank = cnt;
+        if(a == q) q_rank = cnt;
+        cnt++;
+    }while(next_permutation(all(a)));
+    cout << abs(p_rank - q_rank) << endl;
+    return 0;
 }

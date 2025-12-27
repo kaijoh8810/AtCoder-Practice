@@ -13,18 +13,15 @@ int main() {
     vector<int> p(n),q(n);
     rep(i,n) cin >> p[i];
     rep(i,n) cin >> q[i];
-
+    
     vector<int> a(n);
-    rep(i,n) a[i] = i+1;
-
-    int p_rank = 0, q_rank = 0;
-    int cnt = 0;
-
+    rep(i,n) a[i]=i+1;
+    int p_rank=0,q_rank=0,cnt=0;
     do{
-        if(a == p) p_rank = cnt;
-        if(a == q) q_rank = cnt;
-        cnt++;
+        if(p==a) p_rank = cnt;
+        if(q==a) q_rank = cnt;
+        cnt++; 
     }while(next_permutation(all(a)));
-    cout << abs(p_rank - q_rank) << endl;
+    cout << abs(p_rank-q_rank)<< "\n";
     return 0;
 }
